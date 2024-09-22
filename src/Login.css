@@ -1,0 +1,10 @@
+.login {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(./BilderVideo/lake-5353943.jpg);
+    background-size: cover;
+    background-position: center;
+  }
+  

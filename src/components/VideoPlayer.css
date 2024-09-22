@@ -1,0 +1,44 @@
+html, body {
+  margin: 0;
+  height: 100%;
+}
+
+.video-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #f3f3f3;
+    padding: 20px;
+    min-height: 100vh;
+  }
+  
+  .video-wrapper {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .video-item{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .head{
+    text-align: center;
+  }
+
+  .video-player {
+    width: 100%;
+    max-width: 800px;
+    max-height: 600px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    object-fit: cover;
+    cursor: pointer;
+  }
+
+  
+  
