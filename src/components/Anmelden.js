@@ -6,13 +6,33 @@ export default function Anmeldung() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   const navigate = useNavigate();
+  const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    if (username === 'admin' && password === 'admin') {
-      navigate('/way');
-    } else {
-      alert('Falscher Benutzername oder Passwort');
+
+    try {
+      // API-Anfrage an den Server senden
+      const response = await fetch('http://localhost:8080/api/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ benutzername: username, passwort: password }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Wenn der Login erfolgreich ist, weiterleiten
+        navigate('/way'); 
+      } else {
+        // Fehlermeldung vom Server anzeigen
+        setErrorMessage(data.message || 'Login fehlgeschlagen');
+      }
+    } catch (error) {
+      console.error('Fehler beim Login:', error);
+      setErrorMessage('Es gab ein Problem beim Login');
     }
   };
 
@@ -42,6 +62,7 @@ export default function Anmeldung() {
             required
           />
         </div>
+        {errorMessage && <p className="error">{errorMessage}</p>}
         <button type="submit">Einloggen</button>
       </form>
     </div>

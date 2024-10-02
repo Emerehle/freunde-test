@@ -3,25 +3,25 @@ import "./Freunde.css";
 
 export default function Freunde() {
     const [frends, setFrends] = useState([{
-        id: 1,
+       /* id: 1,
         vorname: 'Adrian',
         nachname: 'Prinziy',
         geborenam: new Date('2024-05-11'),
         geschlaecht: 'Männlich',
-    
+    */
     }]);
     const [hoveredFriendId, setHoveredFriendId] = useState(null); // Speichert die ID der gehowerten Karte
 
     //usequery von tanstack müsste aber erst noch intalliert werden
     //axios
-    /* 
+
     useEffect(() => {
         fetch('http://localhost:8080/api/frends')
             .then((response) => response.json())
             .then((data) => setFrends(data))
             .catch((error) => console.error('Error fetching data:', error));
     }, []);
-*/
+
 
     const formatDate = (dateString) => {
         const options = { year: 'numeric', month: 'long', day: 'numeric' };
